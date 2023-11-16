@@ -15,7 +15,7 @@ echo $option
 
 if [ $option -eq 1 ]; then
 
-	cd /home/ubuntu/net-next/drivers/nvme/host
+	cd /home/$(whoami)/net-next/drivers/nvme/host
 	echo "Entering file"
 	echo $PWD
 	rmmod nvme
@@ -25,7 +25,7 @@ if [ $option -eq 1 ]; then
 	insmod nvme-tcp.ko dyndbg
 
 elif [ $option -eq 2 ]; then
-	cd /home/ubuntu/net-next/drivers/nvme/target
+	cd /home/$(whoami)/net-next/drivers/nvme/target
 	echo "Entering file"
 	echo $PWD
 	rmmod nvmet
@@ -35,7 +35,7 @@ elif [ $option -eq 2 ]; then
 	insmod nvmet-tcp.ko dyndbg
 
 elif [ $option -eq 3 ]; then
-	cd /home/ubuntu/HomaModule
+	cd /home/$(whoami)/HomaModule
 	echo "Entering file"
 	echo $PWD
 	rmmod homa
