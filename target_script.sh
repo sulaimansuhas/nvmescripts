@@ -26,7 +26,7 @@ cd /sys/kernel/config/nvmet/ports/1
 
 
 
-echo 192.168.122.51 |sudo tee -a addr_traddr > /dev/null
+echo 192.168.122.201 |sudo tee -a addr_traddr > /dev/null
 
 echo tcp|sudo tee -a addr_trtype > /dev/null
 echo 4420|sudo tee -a addr_trsvcid > /dev/null

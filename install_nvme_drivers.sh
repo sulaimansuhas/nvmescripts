@@ -21,8 +21,8 @@ if [ $option -eq 1 ]; then
 	rmmod nvme
 	rmmod nvme-tcp
 	
-	insmod nvme.ko
-	insmod nvme-tcp.ko
+	insmod nvme.ko dyndbg
+	insmod nvme-tcp.ko dyndbg
 
 elif [ $option -eq 2 ]; then
 	cd /home/ubuntu/net-next/drivers/nvme/target
@@ -31,15 +31,15 @@ elif [ $option -eq 2 ]; then
 	rmmod nvmet
 	rmmod nvmet_tcp
 	
-	insmod nvmet.ko
-	insmod nvmet-tcp.ko
+	insmod nvmet.ko dyndbg
+	insmod nvmet-tcp.ko dyndbg
 
 elif [ $option -eq 3 ]; then
 	cd /home/ubuntu/HomaModule
 	echo "Entering file"
 	echo $PWD
 	rmmod homa
-	insmod homa.ko
+	insmod homa.ko dyndbg
 
 fi
 
