@@ -15,36 +15,52 @@ echo $option
 
 if [ $option -eq 1 ]; then
 
-	cd /home/$USER/net-next/drivers/nvme/host
-	echo "Entering file"
-	echo $PWD
-	rmmod nvme
-	rmmod nvme-tcp
-	
-	insmod nvme.ko dyndbg
-	insmod nvme-tcp.ko dyndbg
+        cd /home/ubuntu/net-next/drivers/nvme/host
+        echo "Entering file"
+        echo $PWD
+        rmmod nvme
+        rmmod nvme-tcp
+        read -p "Install with debug options (y/n)?" debug
+
+        if [ $debug = "y" ]; then
+                insmod nvme.ko dyndbg
+                insmod nvme-tcp.ko dyndbg
+        else
+                insmod nvme.ko
+                insmod nvme-tcp.ko
+        fi
+
 
 elif [ $option -eq 2 ]; then
-	cd /home/$USER/net-next/drivers/nvme/target
-	echo "Entering file"
-	echo $PWD
-	rmmod nvmet
-	rmmod nvmet_tcp
-	
-	insmod nvmet.ko dyndbg
-	insmod nvmet-tcp.ko dyndbg
+        cd /home/ubuntu/net-next/drivers/nvme/target
+        echo "Entering file"
+        echo $PWD
+        rmmod nvmet
+        rmmod nvmet_tcp
+        read -p "Install with debug options (y/n)?" debug
+
+        if [ $debug = "y" ]; then
+                insmod nvmet.ko dyndbg
+                insmod nvmet-tcp.ko dyndbg
+        else
+                insmod nvmet.ko
+                insmod nvmet-tcp.ko
+        fi
 
 elif [ $option -eq 3 ]; then
-	cd /home/$USER/HomaModule
-	echo "Entering file"
-	echo $PWD
-	rmmod homa
-	insmod homa.ko dyndbg
+        cd /home/ubuntu/HomaModule
+        echo "Entering file"
+        echo $PWD
+        rmmod homa
+        read -p "Install with debug options (y/n)?" debug
+
+        if [ $debug = "y" ]; then
+                insmod homa.ko dyndbg
+        else
+                insmod homa.ko
+        fi
 
 fi
-
-
-
 
 
 
